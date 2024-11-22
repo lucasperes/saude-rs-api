@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto.DadosPessoalDTO;
 import br.gov.rs.saude.api.saude.api.core.domain.dto.AbstractDTOBase;
+import br.gov.rs.saude.api.saude.api.core.domain.enums.global.EntityStatusEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,5 +27,8 @@ public class ListaDadosPessoaisResponseDTO extends AbstractDTOBase {
 	private Integer perfilId;
 	@JsonProperty(access = Access.READ_ONLY)
 	private String perfilNome;
-
+	
+	@JsonProperty(access = Access.READ_ONLY)
+	private EntityStatusEnum status;
+	
 }

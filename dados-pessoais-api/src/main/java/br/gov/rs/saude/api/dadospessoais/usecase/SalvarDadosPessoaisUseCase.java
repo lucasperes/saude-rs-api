@@ -13,9 +13,11 @@ import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.DadosPes
 import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.EnderecoEntity;
 import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.UsuarioEntity;
 import br.gov.rs.saude.api.dadospessoais.domain.model.Usuario;
+import br.gov.rs.saude.api.saude.api.core.domain.enums.global.EntityStatusEnum;
 import br.gov.rs.saude.api.saude.api.core.exception.impl.EntityNotFoundException;
 import br.gov.rs.saude.api.saude.api.core.usecase.IUseCaseBase;
 import br.gov.rs.saude.api.saude.api.core.usecase.impl.AbstractUseCaseBase;
+import br.gov.rs.saude.api.saude.api.core.utils.ValidationUtils;
 import br.gov.rs.saude.api.saude.api.core.utils.messages.GlobalMappingMessagesEnum;
 
 @Component
@@ -38,6 +40,15 @@ public class SalvarDadosPessoaisUseCase extends AbstractUseCaseBase
 	public Usuario execute(Usuario entity) {
 		// ModelMapper
 		UsuarioEntity usuario = mapperSafeNull(entity, UsuarioEntity.class);
+		// Se o ID for nulo, e um novo registro
+		if(ValidationUtils.isNull(usuario.getId())) {
+			usuario.setStatus(EntityStatusEnum.ATIVO);
+		} else {
+			final Long usuarioId = usuario.getId();
+			UsuarioEntity usuarioDB = usuariosRepository.findById(usuarioId)
+					.orElseThrow(() -> new EntityNotFoundException(GlobalMappingMessagesEnum.MSG_ERROR_ENTITY_NOT_FOUND, usuarioId));
+			usuario.setStatus(usuarioDB.getStatus());
+		}
 		
 		// Salva os dados antes evitando o erro: org.hibernate.TransientPropertyValueException: Not-null property
 		EnderecoEntity endereco = usuario.getDadosPessoal().getEndereco();

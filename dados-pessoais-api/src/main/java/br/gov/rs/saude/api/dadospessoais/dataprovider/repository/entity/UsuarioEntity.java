@@ -1,6 +1,6 @@
 package br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity;
 
-import br.gov.rs.saude.api.saude.api.core.domain.entity.AbstractEntityBase;
+import br.gov.rs.saude.api.saude.api.core.domain.entity.AbstractStatusEntityBase;
 import br.gov.rs.saude.api.saude.api.core.utils.ConstantsUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +24,7 @@ import lombok.Setter;
 	name = UsuarioEntity.NAME_TABLE,
 	schema = ConstantsUtils.Database.NAME_SCHEMA_PERFIS
 )
-public class UsuarioEntity extends AbstractEntityBase<Long> {
+public class UsuarioEntity extends AbstractStatusEntityBase<Long> {
 
 	private static final long serialVersionUID = 1634447329861024317L;
 
@@ -32,6 +32,7 @@ public class UsuarioEntity extends AbstractEntityBase<Long> {
 	public static final String NAME_TABLE = "TB_USUARIO";
 	public static final String COLUMN_DADOS_PESSOAL = "FK_DADOS_PESSOAL_ID";
 	public static final String COLUMN_PERFIL = "FK_PERFIL_ID";
+	public static final String COLUMN_IS_ATIVO = "IS_ATIVO";
 	
 	@Id
 	@Column(name = COLUMN_ID, nullable = false)

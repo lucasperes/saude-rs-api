@@ -11,6 +11,7 @@ CREATE TABLE sch_perfis.TB_USUARIO (
                 ID BIGINT NOT NULL DEFAULT nextval('sch_perfis.tb_usuario_id_seq'),
                 FK_DADOS_PESSOAL_ID BIGINT NOT NULL,
                 FK_PERFIL_ID INTEGER NOT NULL,
+                DSC_STATUS VARCHAR(30) NOT NULL,
                 CONSTRAINT tb_usuario_pk PRIMARY KEY (ID)
 );
 ALTER SEQUENCE sch_perfis.tb_usuario_id_seq OWNED BY sch_perfis.TB_USUARIO.ID;
