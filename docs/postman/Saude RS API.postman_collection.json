@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "4a49892f-d5c4-4cd7-9397-a2b2fd5e2cdd",
+		"name": "Saude RS API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2071429"
+	},
+	"item": [
+		{
+			"name": "dados-pessoais",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_api_dados_pessoais}}/v1/dados-pessoais?page=0&size=20",
+							"host": [
+								"{{url_api_dados_pessoais}}"
+							],
+							"path": [
+								"v1",
+								"dados-pessoais"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"usuarioId\": null,\r\n   \"dadosPessoal\": {\r\n        \"nomeCompleto\": \"Joao Martinho Da Vila\",\r\n        \"nomeSocial\": null,\r\n        \"dataNascimento\": \"21/07/1982\",\r\n        \"sexo\": \"MASCULINO\",\r\n        \"cpf\": \"000.000.000-09\",\r\n        \"rg\": \"0000007\",\r\n        \"cns\": \"000000000000126\",\r\n        \"nomeMaeCompleto\": \"Maria Luzia Souza\",\r\n        \"nomePaiCompleto\": \"Mario Lobo\",\r\n        \"endereco\": {\r\n            \"cep\": \"74000-000\",\r\n            \"cidadeId\": 1,\r\n            \"logradouro\": \"Rua 01, Quadra 03, Lote 05\",\r\n            \"bairro\": \"Setor Central\",\r\n            \"complemento\": \"Res. Bolivar\"\r\n        },\r\n        \"telefone\": \"(62)33333333\"\r\n   },\r\n   \"perfilId\": 1 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_api_dados_pessoais}}/v1/dados-pessoais",
+							"host": [
+								"{{url_api_dados_pessoais}}"
+							],
+							"path": [
+								"v1",
+								"dados-pessoais"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_api_dados_pessoais",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

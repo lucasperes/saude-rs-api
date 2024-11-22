@@ -42,143 +42,146 @@
     <column id="COL9" populated="true" UUID="71ece967-6852-4a8c-82aa-3a6feaf7cf93" autoIncrement="false" autoIncrementSequenceName="sch_perfis.TB_USUARIO_FK_PERFIL_ID_seq" defaultValue="" name="FK_PERFIL_ID" nullable="0" physicalName="FK_PERFIL_ID" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
+    <column id="COL10" populated="true" UUID="efb20d3c-1d63-4538-883a-51b2324c3154" autoIncrement="false" defaultValue="" name="DSC_STATUS" nullable="0" physicalName="DSC_STATUS" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
     </folder>
     <folder id="FOLTAB63" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
     <folder id="FOLTAB62" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB64" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX10" populated="true" UUID="775e8db1-0f66-480d-a31e-6dbd28b72cb2" clustered="false" name="TB_USUARIO_PK" physicalName="tb_usuario_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC11" populated="true" UUID="18313cb6-923d-4e60-b49c-9dfd14915c03" ascendingOrDescending="UNSPECIFIED" column-ref="COL7" name="ID" physicalName="ID" />
+    <index id="IDX11" populated="true" UUID="775e8db1-0f66-480d-a31e-6dbd28b72cb2" clustered="false" name="TB_USUARIO_PK" physicalName="tb_usuario_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC12" populated="true" UUID="18313cb6-923d-4e60-b49c-9dfd14915c03" ascendingOrDescending="UNSPECIFIED" column-ref="COL7" name="ID" physicalName="ID" />
     </index>
    </folder>
   </table>
-  <table id="TAB12" populated="true" UUID="30eb4801-0f84-47c3-8f28-5e17da4d0077" name="sch_dados_pessoais.TB_DADOS_PESSOAL" objectType="TABLE" physicalName="sch_dados_pessoais.TB_DADOS_PESSOAL" >
+  <table id="TAB13" populated="true" UUID="30eb4801-0f84-47c3-8f28-5e17da4d0077" name="sch_dados_pessoais.TB_DADOS_PESSOAL" objectType="TABLE" physicalName="sch_dados_pessoais.TB_DADOS_PESSOAL" >
    <remarks></remarks>
-   <folder id="FOLTAB121" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL13" populated="true" UUID="7bbde10f-0019-482e-b9e5-3dddf20b72c9" autoIncrement="true" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_ID_SEQ" defaultValue="" name="ID" nullable="0" physicalName="ID" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+   <folder id="FOLTAB131" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL14" populated="true" UUID="7bbde10f-0019-482e-b9e5-3dddf20b72c9" autoIncrement="true" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_ID_SEQ" defaultValue="" name="ID" nullable="0" physicalName="ID" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL14" populated="true" UUID="9226c165-f9ce-4e98-a40b-94ba1b012177" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_COMPLETO_seq" defaultValue="" name="DSC_NOME_COMPLETO" nullable="0" physicalName="DSC_NOME_COMPLETO" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL15" populated="true" UUID="9226c165-f9ce-4e98-a40b-94ba1b012177" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_COMPLETO_seq" defaultValue="" name="DSC_NOME_COMPLETO" nullable="0" physicalName="DSC_NOME_COMPLETO" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL15" populated="true" UUID="9bd9374b-fb56-4218-8c4e-c9351f667b4b" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_SOCIAL_seq" defaultValue="" name="DSC_NOME_SOCIAL" nullable="1" physicalName="DSC_NOME_SOCIAL" precision="80" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL16" populated="true" UUID="9bd9374b-fb56-4218-8c4e-c9351f667b4b" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_SOCIAL_seq" defaultValue="" name="DSC_NOME_SOCIAL" nullable="1" physicalName="DSC_NOME_SOCIAL" precision="80" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL16" populated="true" UUID="b942911e-e7a5-4834-8b6f-3400bae0a839" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DT_NASCIMENTO_seq" defaultValue="" name="DT_NASCIMENTO" nullable="0" physicalName="DT_NASCIMENTO" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL17" populated="true" UUID="b942911e-e7a5-4834-8b6f-3400bae0a839" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DT_NASCIMENTO_seq" defaultValue="" name="DT_NASCIMENTO" nullable="0" physicalName="DT_NASCIMENTO" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL17" populated="true" UUID="fa42e328-c0a5-44ec-a16a-79074cbe8cba" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_SGL_SEXO_seq" defaultValue="" name="SGL_SEXO" nullable="0" physicalName="SGL_SEXO" precision="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL18" populated="true" UUID="fa42e328-c0a5-44ec-a16a-79074cbe8cba" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_SGL_SEXO_seq" defaultValue="" name="SGL_SEXO" nullable="0" physicalName="SGL_SEXO" precision="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL18" populated="true" UUID="fc2729f0-c792-4e57-b742-3481f7c5577e" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_CPF_seq" defaultValue="" name="NUM_CPF" nullable="0" physicalName="NUM_CPF" precision="14" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL19" populated="true" UUID="fc2729f0-c792-4e57-b742-3481f7c5577e" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_CPF_seq" defaultValue="" name="NUM_CPF" nullable="0" physicalName="NUM_CPF" precision="14" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL19" populated="true" UUID="65267d9d-d06e-44c8-b64c-847afcc4a12f" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_RG_seq" defaultValue="" name="NUM_RG" nullable="0" physicalName="NUM_RG" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL20" populated="true" UUID="65267d9d-d06e-44c8-b64c-847afcc4a12f" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_RG_seq" defaultValue="" name="NUM_RG" nullable="0" physicalName="NUM_RG" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL20" populated="true" UUID="d993ab92-4aa5-450b-8194-c6c039a3440a" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_CNS_seq" defaultValue="" name="NUM_CNS" nullable="0" physicalName="NUM_CNS" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL21" populated="true" UUID="d993ab92-4aa5-450b-8194-c6c039a3440a" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_CNS_seq" defaultValue="" name="NUM_CNS" nullable="0" physicalName="NUM_CNS" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL21" populated="true" UUID="02b982f1-03d0-47ba-9090-39e0408f3bec" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_MAE_seq" defaultValue="" name="DSC_NOME_MAE" nullable="0" physicalName="DSC_NOME_MAE" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL22" populated="true" UUID="02b982f1-03d0-47ba-9090-39e0408f3bec" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_MAE_seq" defaultValue="" name="DSC_NOME_MAE" nullable="0" physicalName="DSC_NOME_MAE" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL22" populated="true" UUID="2a7a89b9-8abd-4a74-bbbb-2f243dad623f" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_PAI_seq" defaultValue="" name="DSC_NOME_PAI" nullable="1" physicalName="DSC_NOME_PAI" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL23" populated="true" UUID="2a7a89b9-8abd-4a74-bbbb-2f243dad623f" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_DSC_NOME_PAI_seq" defaultValue="" name="DSC_NOME_PAI" nullable="1" physicalName="DSC_NOME_PAI" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL23" populated="true" UUID="9715b136-5fd4-453b-9451-c862a47ecc03" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_TELEFONE_seq" defaultValue="" name="NUM_TELEFONE" nullable="0" physicalName="NUM_TELEFONE" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL24" populated="true" UUID="9715b136-5fd4-453b-9451-c862a47ecc03" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_NUM_TELEFONE_seq" defaultValue="" name="NUM_TELEFONE" nullable="0" physicalName="NUM_TELEFONE" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL24" populated="true" UUID="7ef9dc17-8711-476f-9ce4-30d5ad66bfe1" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_FK_ENDERECO_ID_seq" defaultValue="" name="FK_ENDERECO_ID" nullable="0" physicalName="FK_ENDERECO_ID" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL25" populated="true" UUID="7ef9dc17-8711-476f-9ce4-30d5ad66bfe1" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_DADOS_PESSOAL_FK_ENDERECO_ID_seq" defaultValue="" name="FK_ENDERECO_ID" nullable="0" physicalName="FK_ENDERECO_ID" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     </folder>
-    <folder id="FOLTAB123" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB133" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB122" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB132" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB124" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX25" populated="true" UUID="303d3c73-d30b-475a-9176-226cdd71c6eb" clustered="false" name="TB_DADOS_PESSOAL_PK" physicalName="tb_dados_pessoal_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC26" populated="true" UUID="13344c07-3ae4-43d7-8380-e9be708064fd" ascendingOrDescending="UNSPECIFIED" column-ref="COL13" name="ID" physicalName="ID" />
+    <folder id="FOLTAB134" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX26" populated="true" UUID="303d3c73-d30b-475a-9176-226cdd71c6eb" clustered="false" name="TB_DADOS_PESSOAL_PK" physicalName="tb_dados_pessoal_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC27" populated="true" UUID="13344c07-3ae4-43d7-8380-e9be708064fd" ascendingOrDescending="UNSPECIFIED" column-ref="COL14" name="ID" physicalName="ID" />
     </index>
-    <index id="IDX27" populated="true" UUID="564707cc-f583-4804-b674-5fe868ce292e" clustered="false" name="TB_DADOS_PESSOAL_CPF_UNQ" physicalName="tb_dados_pessoal_cpf_unq" primaryKeyIndex="false" unique="true" >
-     <index-column id="IDC28" populated="true" UUID="be4d28e5-ed73-4761-8fee-1cd45cf6fec8" ascendingOrDescending="UNSPECIFIED" column-ref="COL18" name="NUM_CPF" physicalName="NUM_CPF" />
+    <index id="IDX28" populated="true" UUID="564707cc-f583-4804-b674-5fe868ce292e" clustered="false" name="TB_DADOS_PESSOAL_CPF_UNQ" physicalName="tb_dados_pessoal_cpf_unq" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC29" populated="true" UUID="be4d28e5-ed73-4761-8fee-1cd45cf6fec8" ascendingOrDescending="UNSPECIFIED" column-ref="COL19" name="NUM_CPF" physicalName="NUM_CPF" />
     </index>
-    <index id="IDX29" populated="true" UUID="efee8380-9a73-4034-8867-5441799df9e7" clustered="false" name="TB_DADOS_PESSOAL_RG_UNQ" physicalName="tb_dados_pessoal_rg_unq" primaryKeyIndex="false" unique="true" >
-     <index-column id="IDC30" populated="true" UUID="df8f9cfa-6150-4e7e-ba01-04b9c80a2bf8" ascendingOrDescending="UNSPECIFIED" column-ref="COL19" name="NUM_RG" physicalName="NUM_RG" />
+    <index id="IDX30" populated="true" UUID="efee8380-9a73-4034-8867-5441799df9e7" clustered="false" name="TB_DADOS_PESSOAL_RG_UNQ" physicalName="tb_dados_pessoal_rg_unq" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC31" populated="true" UUID="df8f9cfa-6150-4e7e-ba01-04b9c80a2bf8" ascendingOrDescending="UNSPECIFIED" column-ref="COL20" name="NUM_RG" physicalName="NUM_RG" />
     </index>
-    <index id="IDX31" populated="true" UUID="c3e8eb62-5f61-48c4-8ec8-c411119817dc" clustered="false" name="TB_DADOS_PESSOAL_CNS_UNQ" physicalName="tb_dados_pessoal_cns_unq" primaryKeyIndex="false" unique="true" >
-     <index-column id="IDC32" populated="true" UUID="046f8672-5ce5-46a0-bc4b-5884ec2a5fb0" ascendingOrDescending="UNSPECIFIED" column-ref="COL20" name="NUM_CNS" physicalName="NUM_CNS" />
+    <index id="IDX32" populated="true" UUID="c3e8eb62-5f61-48c4-8ec8-c411119817dc" clustered="false" name="TB_DADOS_PESSOAL_CNS_UNQ" physicalName="tb_dados_pessoal_cns_unq" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC33" populated="true" UUID="046f8672-5ce5-46a0-bc4b-5884ec2a5fb0" ascendingOrDescending="UNSPECIFIED" column-ref="COL21" name="NUM_CNS" physicalName="NUM_CNS" />
     </index>
    </folder>
   </table>
-  <table id="TAB33" populated="true" UUID="0f264329-7467-433b-a8b4-9303549367e0" name="sch_dados_pessoais.TB_ENDERECO" objectType="TABLE" physicalName="sch_dados_pessoais.TB_ENDERECO" >
+  <table id="TAB34" populated="true" UUID="0f264329-7467-433b-a8b4-9303549367e0" name="sch_dados_pessoais.TB_ENDERECO" objectType="TABLE" physicalName="sch_dados_pessoais.TB_ENDERECO" >
    <remarks></remarks>
-   <folder id="FOLTAB331" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL34" populated="true" UUID="b214a690-fab9-46f7-b0a0-e8da7de0cf95" autoIncrement="true" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_ID_SEQ" defaultValue="" name="ID" nullable="0" physicalName="ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+   <folder id="FOLTAB341" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL35" populated="true" UUID="b214a690-fab9-46f7-b0a0-e8da7de0cf95" autoIncrement="true" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_ID_SEQ" defaultValue="" name="ID" nullable="0" physicalName="ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL35" populated="true" UUID="9fe51c28-65d3-481e-8a49-324d98915243" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_NUM_CEP_seq" defaultValue="" name="NUM_CEP" nullable="0" physicalName="NUM_CEP" precision="9" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL36" populated="true" UUID="9fe51c28-65d3-481e-8a49-324d98915243" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_NUM_CEP_seq" defaultValue="" name="NUM_CEP" nullable="0" physicalName="NUM_CEP" precision="9" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL36" populated="true" UUID="6e63a8ee-7054-4c15-adda-3602ce1d6ff5" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_FK_CIDADE_ID_seq" defaultValue="" name="FK_CIDADE_ID" nullable="0" physicalName="FK_CIDADE_ID" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL37" populated="true" UUID="6e63a8ee-7054-4c15-adda-3602ce1d6ff5" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_FK_CIDADE_ID_seq" defaultValue="" name="FK_CIDADE_ID" nullable="0" physicalName="FK_CIDADE_ID" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL37" populated="true" UUID="6eace333-02d6-4ec2-ac75-73d135cebae3" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_DSC_LOGRADOURO_seq" defaultValue="" name="DSC_LOGRADOURO" nullable="0" physicalName="DSC_LOGRADOURO" precision="120" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL38" populated="true" UUID="6eace333-02d6-4ec2-ac75-73d135cebae3" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_DSC_LOGRADOURO_seq" defaultValue="" name="DSC_LOGRADOURO" nullable="0" physicalName="DSC_LOGRADOURO" precision="120" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL38" populated="true" UUID="0ee3d98d-2691-435b-b94e-86dfdb91abf8" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_DSC_BAIRRO_seq" defaultValue="" name="DSC_BAIRRO" nullable="0" physicalName="DSC_BAIRRO" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL39" populated="true" UUID="0ee3d98d-2691-435b-b94e-86dfdb91abf8" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_DSC_BAIRRO_seq" defaultValue="" name="DSC_BAIRRO" nullable="0" physicalName="DSC_BAIRRO" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL39" populated="true" UUID="cc4ef896-2345-4e54-9a79-6bc5eba59968" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_DSC_COMPLEMENTO_seq" defaultValue="" name="DSC_COMPLEMENTO" nullable="1" physicalName="DSC_COMPLEMENTO" precision="120" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL40" populated="true" UUID="cc4ef896-2345-4e54-9a79-6bc5eba59968" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_ENDERECO_DSC_COMPLEMENTO_seq" defaultValue="" name="DSC_COMPLEMENTO" nullable="1" physicalName="DSC_COMPLEMENTO" precision="120" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
-    <folder id="FOLTAB333" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB343" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB332" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB342" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB334" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX40" populated="true" UUID="ba8f6aed-b0e7-43bb-9512-32fe0ba577a8" clustered="false" name="TB_ENDERECO_PK" physicalName="tb_endereco_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC41" populated="true" UUID="99262b70-63b7-4c94-a33d-fcd969fbb1b6" ascendingOrDescending="UNSPECIFIED" column-ref="COL34" name="ID" physicalName="ID" />
+    <folder id="FOLTAB344" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX41" populated="true" UUID="ba8f6aed-b0e7-43bb-9512-32fe0ba577a8" clustered="false" name="TB_ENDERECO_PK" physicalName="tb_endereco_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC42" populated="true" UUID="99262b70-63b7-4c94-a33d-fcd969fbb1b6" ascendingOrDescending="UNSPECIFIED" column-ref="COL35" name="ID" physicalName="ID" />
     </index>
    </folder>
   </table>
-  <table id="TAB42" populated="true" UUID="579771b8-0281-45d9-ace3-5fae7881ab77" name="sch_dados_pessoais.TB_CIDADE" objectType="TABLE" physicalName="sch_dados_pessoais.TB_CIDADE" >
+  <table id="TAB43" populated="true" UUID="579771b8-0281-45d9-ace3-5fae7881ab77" name="sch_dados_pessoais.TB_CIDADE" objectType="TABLE" physicalName="sch_dados_pessoais.TB_CIDADE" >
    <remarks></remarks>
-   <folder id="FOLTAB421" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL43" populated="true" UUID="17277f9c-3f3d-4481-836e-ece99fb21b1c" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_CIDADE_ID_seq" defaultValue="" name="ID" nullable="0" physicalName="ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+   <folder id="FOLTAB431" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL44" populated="true" UUID="17277f9c-3f3d-4481-836e-ece99fb21b1c" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_CIDADE_ID_seq" defaultValue="" name="ID" nullable="0" physicalName="ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL44" populated="true" UUID="9e58043d-fa8b-4192-a43d-d3e6b0d01a9b" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_CIDADE_DSC_NOME_seq" defaultValue="" name="DSC_NOME" nullable="0" physicalName="DSC_NOME" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL45" populated="true" UUID="9e58043d-fa8b-4192-a43d-d3e6b0d01a9b" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_CIDADE_DSC_NOME_seq" defaultValue="" name="DSC_NOME" nullable="0" physicalName="DSC_NOME" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL45" populated="true" UUID="c5a90cbb-6fb5-49a7-b22f-fa8dc6b7ecbb" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_CIDADE_CD_UF_seq" defaultValue="" name="CD_UF" nullable="0" physicalName="CD_UF" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL46" populated="true" UUID="c5a90cbb-6fb5-49a7-b22f-fa8dc6b7ecbb" autoIncrement="false" autoIncrementSequenceName="sch_dados_pessoais.TB_CIDADE_CD_UF_seq" defaultValue="" name="CD_UF" nullable="0" physicalName="CD_UF" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
-    <folder id="FOLTAB423" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB433" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB422" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB432" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB424" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX46" populated="true" UUID="2e6ff6b8-deee-4038-bb7e-55692cbb935d" clustered="false" name="TB_CIDADE_PK" physicalName="tb_cidade_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC47" populated="true" UUID="53cdb35c-f9e5-4173-9dc8-3e54bca6c33f" ascendingOrDescending="UNSPECIFIED" column-ref="COL43" name="ID" physicalName="ID" />
+    <folder id="FOLTAB434" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX47" populated="true" UUID="2e6ff6b8-deee-4038-bb7e-55692cbb935d" clustered="false" name="TB_CIDADE_PK" physicalName="tb_cidade_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC48" populated="true" UUID="53cdb35c-f9e5-4173-9dc8-3e54bca6c33f" ascendingOrDescending="UNSPECIFIED" column-ref="COL44" name="ID" physicalName="ID" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL48" populated="true" UUID="cda1af13-f2d8-409a-ae28-c38633761777" deferrability="7" deleteRule="3" fk-table-ref="TAB6" fkCardinality="7" identifying="true" name="TB_USUARIO_TB_PERFIL_FK" physicalName="TB_USUARIO_TB_PERFIL_FK" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP49" populated="true" UUID="0b3cfaaa-7114-45b1-933a-f4bccf7681ea" fk-column-ref="COL9" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   <relationship id="REL49" populated="true" UUID="cda1af13-f2d8-409a-ae28-c38633761777" deferrability="7" deleteRule="3" fk-table-ref="TAB6" fkCardinality="7" identifying="true" name="TB_USUARIO_TB_PERFIL_FK" physicalName="TB_USUARIO_TB_PERFIL_FK" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP50" populated="true" UUID="0b3cfaaa-7114-45b1-933a-f4bccf7681ea" fk-column-ref="COL9" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL50" populated="true" UUID="bcbd4d2c-2516-405d-b2a9-47fc7b61e089" deferrability="7" deleteRule="3" fk-table-ref="TAB6" fkCardinality="7" identifying="true" name="TB_USUARIO_TB_DADOS_PESSOAL_FK" physicalName="TB_USUARIO_TB_DADOS_PESSOAL_FK" pk-table-ref="TAB12" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP51" populated="true" UUID="3ee69eea-f88d-4012-b924-92abee61c052" fk-column-ref="COL8" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL13" />
+   <relationship id="REL51" populated="true" UUID="bcbd4d2c-2516-405d-b2a9-47fc7b61e089" deferrability="7" deleteRule="3" fk-table-ref="TAB6" fkCardinality="7" identifying="true" name="TB_USUARIO_TB_DADOS_PESSOAL_FK" physicalName="TB_USUARIO_TB_DADOS_PESSOAL_FK" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP52" populated="true" UUID="3ee69eea-f88d-4012-b924-92abee61c052" fk-column-ref="COL8" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
    </relationship>
-   <relationship id="REL52" populated="true" UUID="4c438c67-c37a-4ec8-b469-6158084239ba" deferrability="7" deleteRule="3" fk-table-ref="TAB12" fkCardinality="7" identifying="true" name="TB_DADOS_PESSOAL_TB_ENDERECO_FK" physicalName="TB_DADOS_PESSOAL_TB_ENDERECO_FK" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP53" populated="true" UUID="e1cbbcbf-fc7e-4299-9409-66398a19596a" fk-column-ref="COL24" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   <relationship id="REL53" populated="true" UUID="4c438c67-c37a-4ec8-b469-6158084239ba" deferrability="7" deleteRule="3" fk-table-ref="TAB13" fkCardinality="7" identifying="true" name="TB_DADOS_PESSOAL_TB_ENDERECO_FK" physicalName="TB_DADOS_PESSOAL_TB_ENDERECO_FK" pk-table-ref="TAB34" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP54" populated="true" UUID="e1cbbcbf-fc7e-4299-9409-66398a19596a" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL35" />
    </relationship>
-   <relationship id="REL54" populated="true" UUID="19efc293-76d8-41fc-b484-75b32d4523d8" deferrability="7" deleteRule="3" fk-table-ref="TAB33" fkCardinality="7" identifying="true" name="TB_ENDERECO_TB_CIDADE_FK" physicalName="TB_ENDERECO_TB_CIDADE_FK" pk-table-ref="TAB42" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP55" populated="true" UUID="0e41a68d-bcf5-4780-9502-c8b519d96239" fk-column-ref="COL36" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL43" />
+   <relationship id="REL55" populated="true" UUID="19efc293-76d8-41fc-b484-75b32d4523d8" deferrability="7" deleteRule="3" fk-table-ref="TAB34" fkCardinality="7" identifying="true" name="TB_ENDERECO_TB_CIDADE_FK" physicalName="TB_ENDERECO_TB_CIDADE_FK" pk-table-ref="TAB43" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP56" populated="true" UUID="0e41a68d-bcf5-4780-9502-c8b519d96239" fk-column-ref="COL37" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL44" />
    </relationship>
   </relationships>
  </target-database>
@@ -188,13 +191,13 @@
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="609" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB6" x="91" y="22" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB12" x="85" y="329" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB33" x="588" y="344" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB42" x="1022" y="345" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL54" pkConnection="0.6197183098591549" fkConnection="0.4094488188976378" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_ENDERECO_TB_CIDADE_FK" orientation="18"/>
-  <table-link relationship-ref="REL52" pkConnection="0.6106194690265486" fkConnection="0.4416243654822335" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_DADOS_PESSOAL_TB_ENDERECO_FK" orientation="18"/>
-  <table-link relationship-ref="REL48" pkConnection="0.5614035087719298" fkConnection="0.43529411764705883" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_USUARIO_TB_PERFIL_FK" orientation="18"/>
-  <table-link relationship-ref="REL50" pkConnection="0.4820717131474104" fkConnection="0.5" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_USUARIO_TB_DADOS_PESSOAL_FK" orientation="72"/>
+  <table-pane table-ref="TAB13" x="85" y="329" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB34" x="588" y="344" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB43" x="1022" y="345" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL55" pkConnection="0.6197183098591549" fkConnection="0.4094488188976378" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_ENDERECO_TB_CIDADE_FK" orientation="18"/>
+  <table-link relationship-ref="REL53" pkConnection="0.6106194690265486" fkConnection="0.4416243654822335" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_DADOS_PESSOAL_TB_ENDERECO_FK" orientation="18"/>
+  <table-link relationship-ref="REL49" pkConnection="0.5614035087719298" fkConnection="0.43529411764705883" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_USUARIO_TB_PERFIL_FK" orientation="18"/>
+  <table-link relationship-ref="REL51" pkConnection="0.4820717131474104" fkConnection="0.5" rLineColor="0x000000" pkLabelText="" fkLabelText="TB_USUARIO_TB_DADOS_PESSOAL_FK" orientation="72"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">
