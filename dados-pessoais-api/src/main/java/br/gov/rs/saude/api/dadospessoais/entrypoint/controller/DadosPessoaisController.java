@@ -7,14 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.gov.rs.saude.api.dadospessoais.domain.model.DadosPessoaisFilters;
-import br.gov.rs.saude.api.dadospessoais.domain.model.Usuario;
-import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto.request.SalvaDadosPessoaisRequestDTO;
-import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto.response.ListaDadosPessoaisResponseDTO;
-import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto.response.SalvaDadosPessoaisResponseDTO;
+import br.gov.rs.saude.api.dadospessoais.core.domain.DadosPessoaisFilters;
+import br.gov.rs.saude.api.dadospessoais.core.domain.Usuario;
+import br.gov.rs.saude.api.dadospessoais.core.usecase.ListarDadosPessoaisUseCase;
+import br.gov.rs.saude.api.dadospessoais.core.usecase.SalvarDadosPessoaisUseCase;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.operations.DadosPessoaisControllerOperationsAPI;
-import br.gov.rs.saude.api.dadospessoais.usecase.ListarDadosPessoaisUseCase;
-import br.gov.rs.saude.api.dadospessoais.usecase.SalvarDadosPessoaisUseCase;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.request.SalvaDadosPessoaisRequest;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.ListaDadosPessoaisResponse;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.SalvaDadosPessoaisResponse;
 import br.gov.rs.saude.api.saude.api.core.domain.dto.http.HttpResponseBaseDTO;
 import br.gov.rs.saude.api.saude.api.core.entrypoint.controller.AbstractControllerBase;
 import jakarta.validation.Valid;
@@ -37,41 +37,41 @@ public class DadosPessoaisController extends AbstractControllerBase implements D
 	}
 
 	@Override
-	public ResponseEntity<HttpResponseBaseDTO<Page<ListaDadosPessoaisResponseDTO>>> listar(Pageable pageable) {
+	public ResponseEntity<HttpResponseBaseDTO<Page<ListaDadosPessoaisResponse>>> listar(Pageable pageable) {
 		return process(() -> {
 			final var filters = new DadosPessoaisFilters();
 			filters.setPageable(pageable);
 			final var response = listarUseCase.execute(filters);
 			
-			return mapperSafeNull(response, ListaDadosPessoaisResponseDTO.class);
+			return mapperSafeNull(response, ListaDadosPessoaisResponse.class);
 		});
 	}
 
 	@Override
-	public ResponseEntity<HttpResponseBaseDTO<SalvaDadosPessoaisResponseDTO>> salvar(
-			@Valid SalvaDadosPessoaisRequestDTO request) {
+	public ResponseEntity<HttpResponseBaseDTO<SalvaDadosPessoaisResponse>> salvar(
+			@Valid SalvaDadosPessoaisRequest request) {
 		return process(() -> {
 			final var entity = mapperSafeNull(request, Usuario.class);
 			final var response = salvarUseCase.execute(entity);
 			
-			return mapperSafeNull(response, SalvaDadosPessoaisResponseDTO.class);
+			return mapperSafeNull(response, SalvaDadosPessoaisResponse.class);
 		});
 	}
 	
 	private void configMappers() {
-		getMODEL_MAPPER().addMappings(new PropertyMap<Usuario, ListaDadosPessoaisResponseDTO>() {
+		getMODEL_MAPPER().addMappings(new PropertyMap<Usuario, ListaDadosPessoaisResponse>() {
 			@Override
 			protected void configure() {
 				map(source.getId(), destination.getUsuarioId());
 			}
 		});
-		getMODEL_MAPPER().addMappings(new PropertyMap<SalvaDadosPessoaisRequestDTO, Usuario>() {
+		getMODEL_MAPPER().addMappings(new PropertyMap<SalvaDadosPessoaisRequest, Usuario>() {
 			@Override
 			protected void configure() {
 				map(source.getUsuarioId(), destination.getId());
 			}
 		});
-		getMODEL_MAPPER().addMappings(new PropertyMap<Usuario, SalvaDadosPessoaisResponseDTO>() {
+		getMODEL_MAPPER().addMappings(new PropertyMap<Usuario, SalvaDadosPessoaisResponse>() {
 			@Override
 			protected void configure() {
 				map(source.getId(), destination.getUsuarioId());

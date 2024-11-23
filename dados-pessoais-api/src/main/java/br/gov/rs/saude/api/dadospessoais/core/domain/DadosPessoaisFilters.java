@@ -1,4 +1,4 @@
-package br.gov.rs.saude.api.dadospessoais.domain.model;
+package br.gov.rs.saude.api.dadospessoais.core.domain;
 
 import org.springframework.data.domain.Pageable;
 

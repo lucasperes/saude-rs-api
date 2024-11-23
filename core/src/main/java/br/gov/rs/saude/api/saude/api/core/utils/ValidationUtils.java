@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.data.domain.Page;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * @author Lucas P. Soares
  * @date 16 de out. de 2022
@@ -14,13 +16,8 @@ import org.springframework.data.domain.Page;
  * </b>
  *
  */
+@UtilityClass
 public class ValidationUtils {
-
-	/**
-	 * Construtor privado
-	 */
-	private ValidationUtils() {
-	}
 	
 	public static boolean isNull(Object value) {
 		return value == null;

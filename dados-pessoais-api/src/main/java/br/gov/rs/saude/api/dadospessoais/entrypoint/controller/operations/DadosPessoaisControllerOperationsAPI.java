@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto.request.SalvaDadosPessoaisRequestDTO;
-import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto.response.ListaDadosPessoaisResponseDTO;
-import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto.response.SalvaDadosPessoaisResponseDTO;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.request.SalvaDadosPessoaisRequest;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.ListaDadosPessoaisResponse;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.SalvaDadosPessoaisResponse;
 import br.gov.rs.saude.api.saude.api.core.domain.dto.http.HttpResponseBaseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -32,7 +32,7 @@ public interface DadosPessoaisControllerOperationsAPI {
 		@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = HttpResponseBaseDTO.class))),
 		@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = HttpResponseBaseDTO.class)))
 	})
-	ResponseEntity<HttpResponseBaseDTO<Page<ListaDadosPessoaisResponseDTO>>> listar(Pageable pageable);
+	ResponseEntity<HttpResponseBaseDTO<Page<ListaDadosPessoaisResponse>>> listar(Pageable pageable);
 	
 	@PostMapping
 	@Operation(operationId = "salvar", tags = "Dados Pessoais", summary = "Salvar Dados Pessoais", description = "Insere ou atualiza os dados pessoais de um Usuário")
@@ -41,6 +41,6 @@ public interface DadosPessoaisControllerOperationsAPI {
 		@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = HttpResponseBaseDTO.class))),
 		@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = HttpResponseBaseDTO.class)))
 	})
-	ResponseEntity<HttpResponseBaseDTO<SalvaDadosPessoaisResponseDTO>> salvar(@RequestBody @Valid SalvaDadosPessoaisRequestDTO request);
+	ResponseEntity<HttpResponseBaseDTO<SalvaDadosPessoaisResponse>> salvar(@RequestBody @Valid SalvaDadosPessoaisRequest request);
 	
 }

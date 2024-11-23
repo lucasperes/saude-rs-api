@@ -1,4 +1,6 @@
-package br.gov.rs.saude.api.dadospessoais.domain.model;
+package br.gov.rs.saude.api.dadospessoais.core.domain;
+
+import java.util.Set;
 
 import br.gov.rs.saude.api.saude.api.core.domain.enums.global.EntityStatusEnum;
 import lombok.Data;
@@ -10,5 +12,6 @@ public class Usuario {
 	private DadosPessoal dadosPessoal;
 	private Perfil perfil;
 	private EntityStatusEnum status;
+	private Set<Perfil> perfis;
 	
 }

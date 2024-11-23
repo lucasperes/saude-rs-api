@@ -1,14 +1,14 @@
-package br.gov.rs.saude.api.dadospessoais.usecase;
+package br.gov.rs.saude.api.dadospessoais.core.usecase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.gov.rs.saude.api.dadospessoais.core.domain.DadosPessoaisFilters;
+import br.gov.rs.saude.api.dadospessoais.core.domain.Usuario;
 import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.UsuariosRepository;
 import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.UsuarioEntity;
-import br.gov.rs.saude.api.dadospessoais.domain.model.DadosPessoaisFilters;
-import br.gov.rs.saude.api.dadospessoais.domain.model.Usuario;
 import br.gov.rs.saude.api.saude.api.core.usecase.IUseCaseBase;
 import br.gov.rs.saude.api.saude.api.core.usecase.impl.AbstractUseCaseBase;
 

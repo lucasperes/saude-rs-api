@@ -1,10 +1,10 @@
-package br.gov.rs.saude.api.dadospessoais.entrypoint.controller.dto;
+package br.gov.rs.saude.api.dadospessoais.entrypoint.controller.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.EnderecoEntity;
-import br.gov.rs.saude.api.saude.api.core.domain.entity.AbstractEntityBase;
+import br.gov.rs.saude.api.saude.api.core.domain.dto.AbstractDTOBase;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import lombok.Setter;
  * Classe DTO ModelMapper para {@link EnderecoEntity}
  */
 @Getter @Setter
-public class EnderecoDTO extends AbstractEntityBase<Long> {
+public class EnderecoRequest extends AbstractDTOBase {
 	
 	private static final long serialVersionUID = -8958206681131021332L;
 	

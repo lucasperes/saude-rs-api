@@ -7,22 +7,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@EnableSwagger2
-@ComponentScan({ "br.com.rikoo.api" })
+@ComponentScan({ "br.gov.rs.saude.api" })
 public class AppConfig {
 
     @Bean
     WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer() {
 		return factory -> factory.setContextPath("/api");
 	}
-    
-//    @Bean
-//    Docket apiDocket() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .select()
-//                .apis(RequestHandlerSelectors.any())
-//                .paths(PathSelectors.any())
-//                .build();
-//    }
 
 }

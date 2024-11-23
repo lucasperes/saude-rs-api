@@ -1,9 +1,9 @@
 package br.gov.rs.saude.api.saude.api.core.utils;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class ConstantsUtils {
-	
-	private ConstantsUtils() {
-	}
 	
 	public static final class Database {
 		public static final String NAME_SCHEMA_DADOS_PESSOAIS = "sch_dados_pessoais";
