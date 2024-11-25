@@ -6,24 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.gov.rs.saude.api.dadospessoais.core.dataprovider.CidadesDataProvider;
+import br.gov.rs.saude.api.dadospessoais.core.dataprovider.DadosPessoaisDataProvider;
+import br.gov.rs.saude.api.dadospessoais.core.dataprovider.EnderecosDataProvider;
+import br.gov.rs.saude.api.dadospessoais.core.dataprovider.PerfisDataProvider;
+import br.gov.rs.saude.api.dadospessoais.core.dataprovider.UsuariosDataProvider;
+import br.gov.rs.saude.api.dadospessoais.core.domain.Cidade;
+import br.gov.rs.saude.api.dadospessoais.core.domain.DadosPessoal;
+import br.gov.rs.saude.api.dadospessoais.core.domain.Endereco;
 import br.gov.rs.saude.api.dadospessoais.core.domain.Usuario;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.CidadesRepository;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.DadosPessoaisRepository;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.EnderecosRepository;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.PerfisRepository;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.UsuariosRepository;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.CidadeEntity;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.DadosPessoalEntity;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.EnderecoEntity;
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.UsuarioEntity;
+import br.gov.rs.saude.api.dadospessoais.utils.messages.MappingMessagesEnum;
 import br.gov.rs.saude.api.saude.api.core.domain.enums.global.EntityStatusEnum;
 import br.gov.rs.saude.api.saude.api.core.domain.enums.global.PerfisPadraoEnum;
-import br.gov.rs.saude.api.saude.api.core.exception.impl.EntityNotFoundException;
+import br.gov.rs.saude.api.saude.api.core.exception.impl.ValidationException;
 import br.gov.rs.saude.api.saude.api.core.usecase.IUseCaseBase;
 import br.gov.rs.saude.api.saude.api.core.usecase.impl.AbstractUseCaseBase;
 import br.gov.rs.saude.api.saude.api.core.utils.ValidationUtils;
-import br.gov.rs.saude.api.saude.api.core.utils.messages.GlobalMappingMessagesEnum;
 
+/**
+ * Classe UseCase para Salvar Dados Pessoais de um {@link Usuario}
+ */
 @Component
 public class SalvarDadosPessoaisUseCase extends AbstractUseCaseBase
 		implements IUseCaseBase<Usuario, Usuario> {
@@ -31,52 +33,54 @@ public class SalvarDadosPessoaisUseCase extends AbstractUseCaseBase
 	private static final long serialVersionUID = 4858620194587134870L;
 	
 	@Autowired
-	private UsuariosRepository usuariosRepository;
+	private UsuariosDataProvider usuariosDataProvider;
 	@Autowired
-	private PerfisRepository perfisRepository;
+	private PerfisDataProvider perfisDataProvider;
 	@Autowired
-	private DadosPessoaisRepository dadosPessoaisRepository;
+	private DadosPessoaisDataProvider dadosPessoaisDataProvider;
 	@Autowired
-	private EnderecosRepository enderecosRepository;
+	private EnderecosDataProvider enderecosDataProvider;
 	@Autowired
-	private CidadesRepository cidadesRepository;
+	private CidadesDataProvider cidadesDataProvider;
 	
 	@Override
 	@Transactional
 	public Usuario execute(Usuario entity) {
-		// ModelMapper
-		UsuarioEntity usuario = mapperSafeNull(entity, UsuarioEntity.class);
+		// Realiza as validacoes de negocio antes de prosseguir
+		// Valida CPF nao valido
+		final String cpf = entity.getDadosPessoal().getCpf();
+		if(!ValidationUtils.isCPFValid(cpf)) {
+			throw new ValidationException(MappingMessagesEnum.MSG_ERROR_VALIDATION_DOCUMENT_INVALID, cpf, "CPF");
+		}
+		
 		// Se o ID for nulo, e um novo registro
-		if(ValidationUtils.isNull(usuario.getId())) {
-			usuario.setStatus(EntityStatusEnum.ATIVO);
+		if(ValidationUtils.isNull(entity.getId())) {
+			entity.setStatus(EntityStatusEnum.ATIVO);
 			final Integer perfilCidadaoId = PerfisPadraoEnum.CIDADAO.getId();
-			final var perfilCidadao = perfisRepository.findById(perfilCidadaoId)
-					.orElseThrow(() -> new EntityNotFoundException(GlobalMappingMessagesEnum.MSG_ERROR_ENTITY_NOT_FOUND, perfilCidadaoId));
-			usuario.setPerfis(Set.of(perfilCidadao));
+			final var perfilCidadao = perfisDataProvider.findById(perfilCidadaoId);
+			entity.setPerfis(Set.of(perfilCidadao));
 		} else {
-			final Long usuarioId = usuario.getId();
-			UsuarioEntity usuarioDB = usuariosRepository.findById(usuarioId)
-					.orElseThrow(() -> new EntityNotFoundException(GlobalMappingMessagesEnum.MSG_ERROR_ENTITY_NOT_FOUND, usuarioId));
-			usuario.setStatus(usuarioDB.getStatus());
-			usuario.setPerfis(usuarioDB.getPerfis());
+			final Long usuarioId = entity.getId();
+			final var usuarioDB = usuariosDataProvider.findById(usuarioId);
+			entity.setStatus(usuarioDB.getStatus());
+			entity.setPerfis(usuarioDB.getPerfis());
 		}
 		
 		// Salva os dados antes evitando o erro: org.hibernate.TransientPropertyValueException: Not-null property
-		EnderecoEntity endereco = usuario.getDadosPessoal().getEndereco();
+		Endereco endereco = entity.getDadosPessoal().getEndereco();
 		final Integer cidadeId = endereco.getCidade().getId();
-		CidadeEntity cidade = cidadesRepository.findById(cidadeId)
-				.orElseThrow(() -> new EntityNotFoundException(GlobalMappingMessagesEnum.MSG_ERROR_ENTITY_NOT_FOUND, cidadeId));
+		Cidade cidade = cidadesDataProvider.findById(cidadeId);
 		endereco.setCidade(cidade);
-		endereco = enderecosRepository.save(endereco);
+		endereco = enderecosDataProvider.save(endereco);
 		
-		DadosPessoalEntity dadosPessoal = usuario.getDadosPessoal();
+		DadosPessoal dadosPessoal = entity.getDadosPessoal();
 		dadosPessoal.setEndereco(endereco);
-		dadosPessoal = dadosPessoaisRepository.save(dadosPessoal);
+		dadosPessoal = dadosPessoaisDataProvider.save(dadosPessoal);
 		
-		usuario.setDadosPessoal(dadosPessoal);
-		usuario = usuariosRepository.save(usuario);
+		entity.setDadosPessoal(dadosPessoal);
+		entity = usuariosDataProvider.save(entity);
 		
-		return mapperSafeNull(usuario, Usuario.class);
+		return entity;
 	}
 
 }

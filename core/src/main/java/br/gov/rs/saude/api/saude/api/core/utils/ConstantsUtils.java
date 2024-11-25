@@ -15,5 +15,13 @@ public class ConstantsUtils {
 	public static final class Pattern {
 		public static final String DATE_BRAZILIAN = "dd/MM/yyyy";
 	}
+	
+	public static final class Regex {
+		public static final String NOT_NUMBERS = "[^0-9]";
+	}
+	
+	public static final class Values {
+		public static final String EMPTY = "";
+	}
 
 }
