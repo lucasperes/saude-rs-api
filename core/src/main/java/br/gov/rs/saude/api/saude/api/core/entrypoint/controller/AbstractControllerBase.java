@@ -1,5 +1,7 @@
 package br.gov.rs.saude.api.saude.api.core.entrypoint.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -15,6 +17,8 @@ import br.gov.rs.saude.api.saude.api.core.utils.action.IProcessActionAPI;
 public abstract class AbstractControllerBase extends ModelMapperBase {
 
 	private static final long serialVersionUID = 1842881817338784635L;
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractControllerBase.class);
 
 	/**
 	 * Executa e processa uma requisicao e realiza as tratativas de retorno
@@ -31,6 +35,7 @@ public abstract class AbstractControllerBase extends ModelMapperBase {
 			}
 			return ResponseEntity.ok(HttpResponseBaseDTO.hasOk(response));
 		} catch(Exception err) {
+			LOGGER.error("ERROR | error on process action controller. Detail: {}", err);
 			throw err;
 		}
 	}

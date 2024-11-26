@@ -21,6 +21,8 @@ public abstract class AbstractEntityBase<ID> implements Serializable {
 	
 	// COLUMNS
 	public static final String COLUMN_ID = "ID";
+	// ATTRS
+	public static final String ATTR_ALIAS_ENTITY_ID = "e.id";
 
 	/**
 	 * Deve retornar o ID da Entidade

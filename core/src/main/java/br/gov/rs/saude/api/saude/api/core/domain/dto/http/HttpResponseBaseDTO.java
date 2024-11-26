@@ -3,6 +3,9 @@ package br.gov.rs.saude.api.saude.api.core.domain.dto.http;
 import org.springframework.http.HttpStatus;
 
 import br.gov.rs.saude.api.saude.api.core.domain.dto.AbstractDTOBase;
+import br.gov.rs.saude.api.saude.api.core.exception.AbstractSaudeAPIBaseException;
+import br.gov.rs.saude.api.saude.api.core.exception.impl.EntityNotFoundException;
+import br.gov.rs.saude.api.saude.api.core.exception.impl.ValidationException;
 import br.gov.rs.saude.api.saude.api.core.utils.ApplicationHelper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +40,12 @@ public class HttpResponseBaseDTO<T> extends AbstractDTOBase {
 		this.description = description;
 		this.data = data;
 	}
+	
+	private HttpResponseBaseDTO(int statusCode, String description, String detail) {
+		this.statusCode = statusCode;
+		this.description = description;
+		this.detail = detail;
+	}
 
 	private HttpResponseBaseDTO(int statusCode, String description, String detail, String trace) {
 		this.statusCode = statusCode;
@@ -52,10 +61,26 @@ public class HttpResponseBaseDTO<T> extends AbstractDTOBase {
 	public static <T> HttpResponseBaseDTO<T> hasNoContent() {
 		return new HttpResponseBaseDTO<>(HttpStatus.NO_CONTENT.value(), HttpStatus.NO_CONTENT.getReasonPhrase());
 	}
+	
+	public static <T> HttpResponseBaseDTO<T> hasBadRequestError(ValidationException err) {
+		return new HttpResponseBaseDTO<>(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(),
+				err.getMessageTranslated());
+	}
 
+	public static <T> HttpResponseBaseDTO<T> hasNotFoundError(EntityNotFoundException err) {
+		return new HttpResponseBaseDTO<>(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.getReasonPhrase(),
+				err.getMessageTranslated());
+	}
+	
+	public static <T> HttpResponseBaseDTO<T> hasInternalServerError(AbstractSaudeAPIBaseException err) {
+		String trace = ApplicationHelper.extractStackTrace(err);
+		return new HttpResponseBaseDTO<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
+				err.getMessageTranslated(), trace);
+	}
+	
 	public static <T> HttpResponseBaseDTO<T> hasInternalServerError(Exception err) {
 		String trace = ApplicationHelper.extractStackTrace(err);
-		return new HttpResponseBaseDTO<>(HttpStatus.NO_CONTENT.value(), HttpStatus.NO_CONTENT.getReasonPhrase(),
+		return new HttpResponseBaseDTO<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
 				err.getMessage(), trace);
 	}
 

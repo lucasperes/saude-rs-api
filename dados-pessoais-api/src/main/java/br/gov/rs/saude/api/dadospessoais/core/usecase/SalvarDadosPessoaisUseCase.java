@@ -62,6 +62,9 @@ public class SalvarDadosPessoaisUseCase extends AbstractUseCaseBase
 		} else {
 			final Long usuarioId = entity.getId();
 			final var usuarioDB = usuariosDataProvider.findById(usuarioId);
+			if(EntityStatusEnum.INATIVO.equals(usuarioDB.getStatus())) {
+				throw new ValidationException(MappingMessagesEnum.MSG_ERROR_VALIDATION_ENTITY_NOT_PERMIT_OPERATION_BY_STATUS, "Editar", "Inativo");
+			}
 			entity.setStatus(usuarioDB.getStatus());
 			entity.setPerfis(usuarioDB.getPerfis());
 		}

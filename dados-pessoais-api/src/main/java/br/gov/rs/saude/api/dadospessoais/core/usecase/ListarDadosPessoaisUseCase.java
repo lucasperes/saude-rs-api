@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.gov.rs.saude.api.dadospessoais.core.dataprovider.UsuariosDataProvider;
 import br.gov.rs.saude.api.dadospessoais.core.domain.DadosPessoaisFilters;
 import br.gov.rs.saude.api.dadospessoais.core.domain.Usuario;
+import br.gov.rs.saude.api.saude.api.core.domain.enums.global.EntityStatusEnum;
 import br.gov.rs.saude.api.saude.api.core.usecase.IUseCaseBase;
 import br.gov.rs.saude.api.saude.api.core.usecase.impl.AbstractUseCaseBase;
 
@@ -26,6 +27,7 @@ public class ListarDadosPessoaisUseCase extends AbstractUseCaseBase
 	@Override
 	@Transactional(readOnly = true)
 	public Page<Usuario> execute(DadosPessoaisFilters filters) {
+		filters.setStatus(EntityStatusEnum.ATIVO);
 		return usuariosDataProvider.list(filters);
 	}
 

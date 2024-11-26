@@ -35,4 +35,12 @@ public interface UsuariosDataProvider extends IDataProviderBase<Usuario> {
 	 */
 	Page<Usuario> list(DadosPessoaisFilters filters);
 	
+	/**
+	 * Deve Desativar um {@link Usuario} logicamente
+	 * 
+	 * @param id {@link Long}
+	 * @return {@link Usuario}
+	 */
+	Usuario disable(Long id);
+	
 }

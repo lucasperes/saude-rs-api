@@ -10,6 +10,8 @@ import br.gov.rs.saude.api.dadospessoais.core.domain.Usuario;
 import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.UsuariosRepository;
 import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.UsuarioEntity;
 import br.gov.rs.saude.api.saude.api.core.dataprovider.impl.AbstractCustomDataProviderImpl;
+import br.gov.rs.saude.api.saude.api.core.domain.enums.global.EntityStatusEnum;
+import br.gov.rs.saude.api.saude.api.core.domain.enums.global.PerfisPadraoEnum;
 import br.gov.rs.saude.api.saude.api.core.exception.impl.EntityNotFoundException;
 import br.gov.rs.saude.api.saude.api.core.utils.messages.GlobalMappingMessagesEnum;
 
@@ -40,8 +42,19 @@ public class UsuariosDataProviderImpl extends AbstractCustomDataProviderImpl<Usu
 	
 	@Override
 	public Page<Usuario> list(DadosPessoaisFilters filters) {
-		Page<UsuarioEntity> result = repository.findAll(filters.getPageable());
+		Page<UsuarioEntity> result = repository.list(
+				filters.getStatus(),
+				filters.getPageable());
 		return mapperSafeNull(result, Usuario.class);
+	}
+	
+	@Override
+	public Usuario disable(Long id) {
+		final var entity = findById(id);
+		entity.setStatus(EntityStatusEnum.INATIVO);
+		// Limpa os vinculos de perfis que nao seja o Cidadao
+		entity.getPerfis().removeIf(p -> !p.getId().equals(PerfisPadraoEnum.CIDADAO.getId()));
+		return save(entity);
 	}
 
 }

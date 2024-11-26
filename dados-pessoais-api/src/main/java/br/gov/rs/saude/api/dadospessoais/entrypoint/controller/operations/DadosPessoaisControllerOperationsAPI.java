@@ -3,12 +3,15 @@ package br.gov.rs.saude.api.dadospessoais.entrypoint.controller.operations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.request.SalvaDadosPessoaisRequest;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.DesativaDadosPessoaisResponse;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.ListaDadosPessoaisResponse;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.SalvaDadosPessoaisResponse;
 import br.gov.rs.saude.api.saude.api.core.domain.dto.http.HttpResponseBaseDTO;
@@ -42,5 +45,14 @@ public interface DadosPessoaisControllerOperationsAPI {
 		@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = HttpResponseBaseDTO.class)))
 	})
 	ResponseEntity<HttpResponseBaseDTO<SalvaDadosPessoaisResponse>> salvar(@RequestBody @Valid SalvaDadosPessoaisRequest request);
+	
+	@DeleteMapping("/{id}")
+	@Operation(operationId = "desativar", tags = "Dados Pessoais", summary = "Desativar Perfil", description = "Desativa os perfis de um Usuário")
+	@ApiResponses({
+		@ApiResponse(responseCode = "200", description = "Ok"),
+		@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = HttpResponseBaseDTO.class))),
+		@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = HttpResponseBaseDTO.class)))
+	})
+	ResponseEntity<HttpResponseBaseDTO<DesativaDadosPessoaisResponse>> desativar(@PathVariable Long id);
 	
 }

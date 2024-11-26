@@ -2,6 +2,7 @@ package br.gov.rs.saude.api.saude.api.core.exception;
 
 import br.gov.rs.saude.api.saude.api.core.utils.messages.IMessages;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Classe Base para ser herdada por todas as classes Exceptions do sistema
@@ -13,6 +14,8 @@ public abstract class AbstractSaudeAPIBaseException extends RuntimeException {
 
 	private IMessages messages;
 	private Object[] params;
+	@Setter
+	private String messageTranslated;
 	
 	public AbstractSaudeAPIBaseException(IMessages messages, Object ... params) {
 		super(messages.getKey());

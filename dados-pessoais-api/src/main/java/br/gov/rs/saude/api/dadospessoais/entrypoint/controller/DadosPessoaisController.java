@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.gov.rs.saude.api.dadospessoais.core.domain.DadosPessoaisFilters;
 import br.gov.rs.saude.api.dadospessoais.core.domain.Usuario;
+import br.gov.rs.saude.api.dadospessoais.core.usecase.DesativarContaUseCase;
 import br.gov.rs.saude.api.dadospessoais.core.usecase.ListarDadosPessoaisUseCase;
 import br.gov.rs.saude.api.dadospessoais.core.usecase.SalvarDadosPessoaisUseCase;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.operations.DadosPessoaisControllerOperationsAPI;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.request.SalvaDadosPessoaisRequest;
+import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.DesativaDadosPessoaisResponse;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.ListaDadosPessoaisResponse;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.SalvaDadosPessoaisResponse;
 import br.gov.rs.saude.api.saude.api.core.domain.dto.http.HttpResponseBaseDTO;
@@ -31,6 +33,8 @@ public class DadosPessoaisController extends AbstractControllerBase implements D
 	private ListarDadosPessoaisUseCase listarUseCase;
 	@Autowired
 	private SalvarDadosPessoaisUseCase salvarUseCase;
+	@Autowired
+	private DesativarContaUseCase desativaUseCase;
 	
 	public DadosPessoaisController() {
 		configMappers();
@@ -55,6 +59,14 @@ public class DadosPessoaisController extends AbstractControllerBase implements D
 			final var response = salvarUseCase.execute(entity);
 			
 			return mapperSafeNull(response, SalvaDadosPessoaisResponse.class);
+		});
+	}
+	
+	@Override
+	public ResponseEntity<HttpResponseBaseDTO<DesativaDadosPessoaisResponse>> desativar(Long id) {
+		return process(() -> {
+			final var response = desativaUseCase.execute(id);
+			return mapperSafeNull(response, DesativaDadosPessoaisResponse.class);
 		});
 	}
 	
