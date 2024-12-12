@@ -15,11 +15,10 @@ public class EnderecoResponse extends AbstractDTOBase {
 	
 	private Long id;
 	private String cep;
-	private Integer cidadeId;
-	private String cidadeNome;
-	private String cidadeUf;
+	private String nomeMunicipio;
 	private String logradouro;
 	private String bairro;
+	private String uf;
 	private String complemento;
 
 }

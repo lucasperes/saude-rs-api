@@ -16,5 +16,14 @@ public interface IUseCaseBase<E, S> {
 	 * @return <S>
 	 */
 	S execute(E request);
+
+	/**
+	 * Método auxiliar para execução sem retorno.
+	 *
+	 * @param request <E>
+	 */
+	default void executeVoid(E request) {
+		execute(request);
+	}
 	
 }

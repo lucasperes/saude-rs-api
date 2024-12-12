@@ -36,7 +36,7 @@ public class UsuarioEntity extends AbstractStatusEntityBase<Long> {
 	// NAMES COLUMNS TABLE DATABASE
 	public static final String NAME_TABLE = "TB_USUARIO";
 	public static final String COLUMN_DADOS_PESSOAL = "FK_DADOS_PESSOAL_ID";
-	public static final String COLUMN_IS_ATIVO = "IS_ATIVO";
+
 	// JOINS TABLES
 	public static final String NAME_TABLE_JOIN_PERFIS = "TB_USUARIO_PERFIL";
 	public static final String TABLE_JOIN_PERFIS_COLUMN_USUARIO = "FK_USUARIO_ID";
@@ -50,10 +50,10 @@ public class UsuarioEntity extends AbstractStatusEntityBase<Long> {
 	@NotNull
 	@OneToOne
 	@JoinColumn(name = COLUMN_DADOS_PESSOAL, nullable = false)
-	private DadosPessoalEntity dadosPessoal;
+	private DadosPessoaisEntity dadosPessoais;
 	
 	@NotEmpty
-	@ManyToMany(cascade = {CascadeType.ALL})
+	@ManyToMany(cascade = {CascadeType.MERGE})
 	@JoinTable(
 		name = NAME_TABLE_JOIN_PERFIS,
 		schema = ConstantsUtils.Database.NAME_SCHEMA_PERFIS,

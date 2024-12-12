@@ -14,10 +14,8 @@ public class SalvaDadosPessoaisRequest extends AbstractDTOBase {
 
 	private static final long serialVersionUID = 492088532163215285L;
 	
-	private Long usuarioId;
-	
 	@Valid
 	@NotNull
-	private DadosPessoalRequest dadosPessoal;
+	private DadosPessoaisRequest dadosPessoais;
 
 }

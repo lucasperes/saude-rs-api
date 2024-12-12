@@ -1,5 +1,6 @@
 package br.gov.rs.saude.api.dadospessoais.entrypoint.controller;
 
+import br.gov.rs.saude.api.dadospessoais.core.usecase.*;
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,9 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.gov.rs.saude.api.dadospessoais.core.domain.DadosPessoaisFilters;
 import br.gov.rs.saude.api.dadospessoais.core.domain.Usuario;
-import br.gov.rs.saude.api.dadospessoais.core.usecase.DesativarContaUseCase;
-import br.gov.rs.saude.api.dadospessoais.core.usecase.ListarDadosPessoaisUseCase;
-import br.gov.rs.saude.api.dadospessoais.core.usecase.SalvarDadosPessoaisUseCase;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.operations.DadosPessoaisControllerOperationsAPI;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.request.SalvaDadosPessoaisRequest;
 import br.gov.rs.saude.api.dadospessoais.entrypoint.controller.response.DesativaDadosPessoaisResponse;
@@ -32,9 +30,13 @@ public class DadosPessoaisController extends AbstractControllerBase implements D
 	@Autowired
 	private ListarDadosPessoaisUseCase listarUseCase;
 	@Autowired
-	private SalvarDadosPessoaisUseCase salvarUseCase;
+	private CriarDadosPessoaisUseCase criarUseCase;
+	@Autowired
+	private AlterarDadosPessoaisUseCase alterarUseCase;
 	@Autowired
 	private DesativarContaUseCase desativaUseCase;
+	@Autowired
+	private ValidarCnsUseCase validarCnsUseCase;
 	
 	public DadosPessoaisController() {
 		configMappers();
@@ -56,17 +58,37 @@ public class DadosPessoaisController extends AbstractControllerBase implements D
 			@Valid SalvaDadosPessoaisRequest request) {
 		return process(() -> {
 			final var entity = mapperSafeNull(request, Usuario.class);
-			final var response = salvarUseCase.execute(entity);
+			final var response = criarUseCase.execute(entity);
 			
 			return mapperSafeNull(response, SalvaDadosPessoaisResponse.class);
 		});
 	}
-	
+
+	@Override
+	public ResponseEntity<HttpResponseBaseDTO<SalvaDadosPessoaisResponse>> alterar(
+			Long id,
+			@Valid SalvaDadosPessoaisRequest request) {
+		return process(() -> {
+			Usuario usuario = mapperSafeNull(request, Usuario.class);
+			usuario.setId(id);
+			Usuario result = alterarUseCase.execute(usuario);
+			return mapperSafeNull(result, SalvaDadosPessoaisResponse.class);
+		});
+	}
+
 	@Override
 	public ResponseEntity<HttpResponseBaseDTO<DesativaDadosPessoaisResponse>> desativar(Long id) {
 		return process(() -> {
 			final var response = desativaUseCase.execute(id);
 			return mapperSafeNull(response, DesativaDadosPessoaisResponse.class);
+		});
+	}
+
+	@Override
+	public ResponseEntity<HttpResponseBaseDTO<Void>> validarCNS(String cns) {
+		return process(() -> {
+			validarCnsUseCase.execute(cns);
+			return null;
 		});
 	}
 	
@@ -75,12 +97,6 @@ public class DadosPessoaisController extends AbstractControllerBase implements D
 			@Override
 			protected void configure() {
 				map(source.getId(), destination.getUsuarioId());
-			}
-		});
-		getMODEL_MAPPER().addMappings(new PropertyMap<SalvaDadosPessoaisRequest, Usuario>() {
-			@Override
-			protected void configure() {
-				map(source.getUsuarioId(), destination.getId());
 			}
 		});
 		getMODEL_MAPPER().addMappings(new PropertyMap<Usuario, SalvaDadosPessoaisResponse>() {

@@ -12,9 +12,10 @@ import lombok.Getter;
 public enum MappingMessagesEnum implements IMessages {
 
 	// ERROS
+	MSG_ERROR_VALIDATION_NULL_FIELD("msg.error.validation.null_field"),
 	MSG_ERROR_VALIDATION_DOCUMENT_INVALID("msg.error.validation.document_invalid"),
 	MSG_ERROR_VALIDATION_ENTITY_NOT_PERMIT_OPERATION_BY_STATUS("msg.error.validation.entity.not_permit_operation_by_status");
-	
+
 	private String key;
 	
 }

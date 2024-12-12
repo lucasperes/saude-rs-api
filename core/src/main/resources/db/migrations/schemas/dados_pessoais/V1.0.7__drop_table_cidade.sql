@@ -1,0 +1,1 @@
+DROP TABLE sch_dados_pessoais.tb_cidade;

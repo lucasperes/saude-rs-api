@@ -9,7 +9,7 @@ import lombok.Data;
 public class Usuario {
 
 	private Long id;
-	private DadosPessoal dadosPessoal;
+	private DadosPessoais dadosPessoais;
 	private Perfil perfil;
 	private EntityStatusEnum status;
 	private Set<Perfil> perfis;

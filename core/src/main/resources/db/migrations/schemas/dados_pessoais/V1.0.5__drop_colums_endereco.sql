@@ -1,0 +1,2 @@
+ALTER TABLE sch_dados_pessoais.tb_endereco DROP CONSTRAINT tb_endereco_tb_cidade_fk;
+ALTER TABLE sch_dados_pessoais.tb_endereco DROP COLUMN fk_cidade_id;

@@ -6,7 +6,7 @@ import br.gov.rs.saude.api.saude.api.core.domain.enums.global.SexoEnum;
 import lombok.Data;
 
 @Data
-public class DadosPessoal {
+public class DadosPessoais {
 
 	private Long id;
 	private String nomeCompleto;

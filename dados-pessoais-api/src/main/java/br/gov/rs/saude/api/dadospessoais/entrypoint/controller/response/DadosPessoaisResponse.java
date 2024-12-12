@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.DadosPessoalEntity;
+import br.gov.rs.saude.api.dadospessoais.dataprovider.repository.entity.DadosPessoaisEntity;
 import br.gov.rs.saude.api.saude.api.core.domain.dto.AbstractDTOBase;
 import br.gov.rs.saude.api.saude.api.core.domain.enums.global.SexoEnum;
 import br.gov.rs.saude.api.saude.api.core.utils.ConstantsUtils;
@@ -12,10 +12,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Classe DTO ModelMapper para {@link DadosPessoalEntity}
+ * Classe DTO ModelMapper para {@link DadosPessoaisEntity}
  */
 @Getter @Setter
-public class DadosPessoalResponse extends AbstractDTOBase {
+public class DadosPessoaisResponse extends AbstractDTOBase {
 
 	private static final long serialVersionUID = -1615944040192306132L;
 	

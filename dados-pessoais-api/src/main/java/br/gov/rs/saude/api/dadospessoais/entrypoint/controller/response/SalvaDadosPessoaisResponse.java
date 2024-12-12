@@ -16,7 +16,7 @@ public class SalvaDadosPessoaisResponse extends AbstractDTOBase {
 	private static final long serialVersionUID = 492088532163215285L;
 	
 	private Long usuarioId;
-	private DadosPessoalResponse dadosPessoal;
+	private DadosPessoaisResponse dadosPessoal;
 	private Set<PerfilResponse> perfis;
 	private EntityStatusEnum status;
 

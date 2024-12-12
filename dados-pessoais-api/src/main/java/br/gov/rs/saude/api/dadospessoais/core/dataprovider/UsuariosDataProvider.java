@@ -22,10 +22,10 @@ public interface UsuariosDataProvider extends IDataProviderBase<Usuario> {
 	/**
 	 * Deve Salvar um {@link Usuario}
 	 *
-	 * @param entity {@link Usuario}
+	 * @param usuario {@link Usuario}
 	 * @return {@link Usuario}
 	 */
-	Usuario save(Usuario entity);
+	Usuario save(Usuario usuario);
 	
 	/**
 	 * Deve listar os {@link Usuario} com paginacao

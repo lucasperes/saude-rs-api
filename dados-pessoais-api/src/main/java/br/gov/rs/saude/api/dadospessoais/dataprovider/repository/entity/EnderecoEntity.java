@@ -31,10 +31,11 @@ public class EnderecoEntity extends AbstractEntityBase<Long> {
 	// NAMES COLUMNS TABLE DATABASE
 	public static final String NAME_TABLE = "TB_ENDERECO";
 	public static final String COLUMN_CEP = "NUM_CEP";
-	public static final String COLUMN_CIDADE = "FK_CIDADE_ID";
 	public static final String COLUMN_LOGRADOURO = "DSC_LOGRADOURO";
 	public static final String COLUMN_BAIRRO = "DSC_BAIRRO";
 	public static final String COLUMN_COMPLEMENTO = "DSC_COMPLEMENTO";
+	public static final String COLUMN_MUNICIPIO = "DSC_MUNICIPIO_RESIDENCIA";
+	public static final String COLUMN_UF = "SG_UF";
 	
 	@Id
 	@Column(name = COLUMN_ID, nullable = false)
@@ -44,11 +45,6 @@ public class EnderecoEntity extends AbstractEntityBase<Long> {
 	@NotBlank
 	@Column(name = COLUMN_CEP, length = 9, nullable = false)
 	private String cep;
-	
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = COLUMN_CIDADE, nullable = false)
-	private CidadeEntity cidade;
 	
 	@NotBlank
 	@Column(name = COLUMN_LOGRADOURO, length = 120, nullable = false)
@@ -60,5 +56,13 @@ public class EnderecoEntity extends AbstractEntityBase<Long> {
 	
 	@Column(name = COLUMN_COMPLEMENTO, length = 120)
 	private String complemento;
+
+	@NotBlank
+	@Column(name = COLUMN_MUNICIPIO, length = 300, nullable = false)
+	private String nomeMunicipio;
+
+	@NotBlank
+	@Column(name = COLUMN_UF, length = 2, nullable = false)
+	private String uf;
 
 }

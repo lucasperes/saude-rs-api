@@ -34,8 +34,8 @@ public class UsuariosDataProviderImpl extends AbstractCustomDataProviderImpl<Usu
 	}
 	
 	@Override
-	public Usuario save(Usuario entity) {
-		UsuarioEntity entityMapper = mapperSafeNull(entity, UsuarioEntity.class);
+	public Usuario save(Usuario usuario) {
+		UsuarioEntity entityMapper = mapperSafeNull(usuario, UsuarioEntity.class);
 		UsuarioEntity result = repository.save(entityMapper);
 		return mapper(result, Usuario.class);
 	}

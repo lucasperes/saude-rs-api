@@ -28,15 +28,15 @@ import lombok.Setter;
 @Entity
 @Getter @Setter
 @Table(
-	name = DadosPessoalEntity.NAME_TABLE,
+	name = DadosPessoaisEntity.NAME_TABLE,
 	schema = ConstantsUtils.Database.NAME_SCHEMA_DADOS_PESSOAIS
 )
-public class DadosPessoalEntity extends AbstractEntityBase<Long> {
+public class DadosPessoaisEntity extends AbstractEntityBase<Long> {
 
 	private static final long serialVersionUID = 1637784941167691714L;
 
 	// NAMES COLUMNS TABLE DATABASE
-	public static final String NAME_TABLE = "TB_DADOS_PESSOAL";
+	public static final String NAME_TABLE = "TB_DADOS_PESSOAIS";
 	public static final String COLUMN_NOME_COMPLETO = "DSC_NOME_COMPLETO";
 	public static final String COLUMN_NOME_SOCIAL = "DSC_NOME_SOCIAL";
 	public static final String COLUMN_DATA_NASCIMENTO = "DT_NASCIMENTO";
