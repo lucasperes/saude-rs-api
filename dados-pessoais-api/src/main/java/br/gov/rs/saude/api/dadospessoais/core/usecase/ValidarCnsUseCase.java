@@ -21,7 +21,7 @@ public class ValidarCnsUseCase extends AbstractUseCaseBase implements IUseCaseBa
 	@Override
 	@Transactional
 	public Void execute(String cns) {
-		if (ValidationUtils.isNull(cns)) {
+		if (ValidationUtils.isEmpty(cns)) {
 			throw new ValidationException(MappingMessagesEnum.MSG_ERROR_VALIDATION_NULL_FIELD, "CNS");
 		}
 
